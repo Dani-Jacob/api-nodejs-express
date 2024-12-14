@@ -13,9 +13,15 @@ const createUserController = (req,res) =>{
 };
 
 //READ
-const getAllUsersController = (req,res) =>{
+const getAllUsersController = (req,res,next) =>{
     try{
-        let users = UserModel.getAllUsers();
+        let {limite,pagina} = req.query;
+        let users = {};
+        if(limite && pagina){
+            users = UserModel.getAllUsers(limite,pagina);
+        }else{
+            res.sendStatus(400);
+        }
         res.status(200).json(users);
     }catch(error){
         res.sendStatus(500);

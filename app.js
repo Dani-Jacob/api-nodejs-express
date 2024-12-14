@@ -1,6 +1,7 @@
 const express = require('express');
 require('dotenv').config();
 const UserRoutes = require('./src/routes/UserRoutes.js');
+const GetErrosMiddleware = require('./src/middleware/GetErrorsMiddleware.js');
 
 
 const plantaRoutes  = require('./src/routes/PlantaRoutes')
@@ -9,6 +10,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(GetErrosMiddleware);
 
 app.use('/usuarios',UserRoutes);
 

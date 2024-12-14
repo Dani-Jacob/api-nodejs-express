@@ -32,10 +32,13 @@ const createUser = (usuario, senha, permissao) =>{
 }
 
 //READ
-const getAllUsers = () => {
+const getAllUsers = (limite,pagina) => {
     let obj = getData();
-    return obj.usuarios;
+    let inicio = (parseInt(limite))*(parseInt(pagina)-1);
+    let fim = inicio+parseInt(limite);
+    return obj.usuarios.slice(inicio,fim)
 }
+
 const getUserById = (id) => {
     let obj = getData();
     return obj.usuarios.filter(x=>x.id == id)[0];
