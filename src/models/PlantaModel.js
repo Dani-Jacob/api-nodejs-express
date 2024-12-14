@@ -4,17 +4,21 @@ const path = require('path');
 const pathPlantasJson = path.join(__dirname, '../db/PlantaDb.json');
 
 const getData = () => {
+
     let data = fs.readFileSync(pathPlantasJson, 'utf-8');
-    console.log(data)
-    return JSON.parse(data)
+    return JSON.parse(data);
 }
 
 const saveData = (data) =>{
     fs.writeFileSync(pathPlantasJson, data);
 }
 
-const getAllPlantas = ()=>{
-    return getData().plantas;
+const getAllPlantas = (limite, pagina)=>{
+
+    const start = parseInt(limite)*(parseInt(pagina-1));
+    const end = parseInt(start)+parseInt(limite);
+
+    return getData().plantas.slice(start, end);
 };
 
 const getPlatasById = (id)=>{

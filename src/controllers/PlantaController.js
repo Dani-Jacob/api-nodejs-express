@@ -1,9 +1,9 @@
 const models = require('../models/PlantaModel');
 
 const getAllPlantasController = (req, res)=>{
-
     try{
-        let plantas = models.getAllPlantas();
+        const {limite, pagina} = req.query;
+        let plantas = models.getAllPlantas(limite, pagina);
         console.log(plantas)
         res.status(200).json(plantas);
     }

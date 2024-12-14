@@ -1,8 +1,6 @@
 const express = require('express');
 require('dotenv').config();
 const UserRoutes = require('./src/routes/UserRoutes.js');
-
-
 const plantaRoutes  = require('./src/routes/PlantaRoutes')
 
 const app = express();

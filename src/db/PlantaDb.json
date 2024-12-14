@@ -1,1 +1,47 @@
-{"0":{"id":"1","nome":"espada","preco":10.9,"quantidade":35},"ultimoId":5,"plantas":[{"id":"1","nome":"espada","preco":12.5,"quantidade":5},{"id":2,"nome":"coqueiro","preco":10.5,"quantidade":10},{"id":2,"nome":"coqueiro","preco":10.5,"quantidade":10},{"id":2,"nome":"coqueiro","preco":10.5,"quantidade":10},{"id":2,"nome":"coqueiro","preco":10.5,"quantidade":10},{"id":3,"nome":"coqueiro","preco":10.5,"quantidade":10},{"id":4,"nome":"coqueiro","preco":10.5,"quantidade":10}]}
+{
+    "ultimoId": 5,
+    "plantas": [
+        {
+            "id": "1",
+            "nome": "espada",
+            "preco": 12.5,
+            "quantidade": 5
+        },
+        {
+            "id": 2,
+            "nome": "coqueiro",
+            "preco": 10.5,
+            "quantidade": 10
+        },
+        {
+            "id": 2,
+            "nome": "coqueiro",
+            "preco": 10.5,
+            "quantidade": 10
+        },
+        {
+            "id": 2,
+            "nome": "coqueiro",
+            "preco": 10.5,
+            "quantidade": 10
+        },
+        {
+            "id": 2,
+            "nome": "coqueiro",
+            "preco": 10.5,
+            "quantidade": 10
+        },
+        {
+            "id": 3,
+            "nome": "coqueiro",
+            "preco": 10.5,
+            "quantidade": 10
+        },
+        {
+            "id": 4,
+            "nome": "coqueiro",
+            "preco": 10.5,
+            "quantidade": 10
+        }
+    ]
+}
