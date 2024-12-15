@@ -10,10 +10,12 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(GetErrosMiddleware);
+
 
 app.use('/usuarios',UserRoutes);
 
 app.use('/estoque', plantaRoutes);
+
+app.use(GetErrosMiddleware);
 
 module.exports = app;

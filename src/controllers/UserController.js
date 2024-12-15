@@ -17,16 +17,12 @@ const getAllUsersController = (req,res,next) =>{
     try{
         let {limite,pagina} = req.query;
         let users = {};
-        if(limite && pagina){
-            users = UserModel.getAllUsers(limite,pagina);
-        }else{
-            res.sendStatus(400);
-        }
+        users = UserModel.getAllUsers(limite,pagina);
         res.status(200).json(users);
     }catch(error){
-        res.sendStatus(500);
-        //console.log(error);
+        next(error);
     }
+    next();
 };
 const getUserByIdController = (req,res) =>{
     const {id} = req.params;
