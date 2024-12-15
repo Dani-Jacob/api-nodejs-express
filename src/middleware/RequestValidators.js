@@ -1,4 +1,4 @@
-const { query } = require('express-validator');
+const { query, body, param} = require('express-validator');
 
 const paginationValidator = [
     query('limite')
@@ -10,6 +10,18 @@ const paginationValidator = [
       .withMessage('A página deve ser um número inteiro maior ou igual a 1')
 ];
 
+const plantasValidator = [
+  body('nome').isString().withMessage('Nome deve ser uma string').notEmpty().withMessage('Nome não pode ser vazio'),
+  body('preco').isFloat({ min: 0 }).withMessage('Preco deve ser um número positivo'),
+  body('quantidade').isInt({ min: 0 }).withMessage('Quantidade deve ser um número positivo')
+];
+
+const IdValidator = [
+  param('id').isInt({ min: 0 }).withMessage('O ID deve ser um número inteiro positivo')
+];
+
 module.exports = {
-    paginationValidator
+    paginationValidator,
+    plantasValidator,
+    IdValidator
 };
