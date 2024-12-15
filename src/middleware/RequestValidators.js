@@ -36,8 +36,7 @@ const IdValidator = [
 
 module.exports = {
   paginationValidator,
-  userValidator
-    paginationValidator,
-    plantasValidator,
-    IdValidator
+  userValidator,
+  plantasValidator,
+  IdValidator
 };
