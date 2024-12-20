@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const jwt = require('jsonwebtoken');
+const CustomError = require('../customErrors/CustomError.js');
 
 const pathJson = path.join(__dirname, '../db/UsersDb.json');
 
@@ -66,11 +68,44 @@ const deleteUser = (id) =>{
     let obj = getData();
     
     let index = obj.usuarios.findIndex(x=>x.id == id);
-    
-    let userRemoved = obj.usuarios.splice(index,1);
-    writeData(obj);
+    if(index>=0){
+        if(obj.usuarios[index].permissao != 'admin'){
+            let userRemoved = obj.usuarios.splice(index,1);
+            writeData(obj);
+            return userRemoved[0];
+        }else{
+            throw new CustomError(403, 'Não é permitido excluir um admin');
+        }
+    }
+    return undefined;
+}
 
-    return userRemoved[0];
+const generateToken = (usuario) => {
+    const payload = {
+        id: usuario.id,
+        usuario: usuario.usuario,
+        permissao: usuario.permissao,
+    };
+
+    let secret = process.env.JWT_SECRET || 'segredo';
+    let time = process.env.JWT_TIME || '600s';
+    return jwt.sign(payload, secret, { expiresIn: time });
+};
+
+
+const login = async (usuario, senha) => {
+    try {
+        const usuarios = getData().usuarios
+    
+        const user = usuarios.find(x => x.usuario == usuario);
+
+        if (!user || user.senha != senha) {
+            return null;
+        }
+        return generateToken(user);
+    } catch (error) {
+        return null;
+    }
 }
 
 module.exports = {
@@ -78,5 +113,6 @@ module.exports = {
     getAllUsers,
     getUserById,
     updateUser,
-    deleteUser
+    deleteUser,
+    login
 }
