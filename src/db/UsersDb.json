@@ -1,1 +1,1 @@
-{"ultimoId":11,"usuarios":[{"id":1,"usuario":"admin","senha":"123","permissao":"admin"},{"id":2,"usuario":"Daniel","senha":"dani","permissao":"admin"},{"id":3,"usuario":"Felipe","senha":"Batatinha","permissao":"user"},{"id":5,"usuario":"Joao","senha":"jjjj","permissao":"admin"},{"id":7,"usuario":"marcelo","senha":"mmmm","permissao":"user"},{"id":11,"usuario":"Mocca","senha":"miau","permissao":"user"}]}
+{"ultimoId":1,"usuarios":[{"id":1,"usuario":"admin","senha":"admin","permissao":"admin"}]}

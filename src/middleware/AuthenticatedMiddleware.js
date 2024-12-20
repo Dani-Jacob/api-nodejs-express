@@ -2,9 +2,9 @@ const jwt = require('jsonwebtoken');
 const CustomError = require('../customErrors/CustomError.js');
 
 const authenticateToken = (req, res, next) => {
-    const authHeader = req.headers['authorization'];
+    const authHeader = req.headers['Authorization'];
 
-    const token = authHeader && authHeader.split(' ')[1];
+    const token = authHeader.startsWith('Bearer ') ? authHeader.split(' ')[1] : null;
 
     if(!token){
         return next(new CustomError(401, 'Acesso negado!'));
