@@ -37,7 +37,7 @@ const createPlata = (nome, preco, quantidade)=>{
 
     saveData(JSON.stringify(data));
 
-    return JSON.stringify(newPlanta);
+    return newPlanta;
 };
 
 const updatePlanta = (id, nome, preco, quantidade)=>{
