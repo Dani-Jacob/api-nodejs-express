@@ -1,72 +1,39 @@
 const models = require('../models/PlantaModel');
 
-const getAllPlantasController = (req, res, next) => {
-    try {
-        const { limite, pagina } = req.query;
-        let plantas = models.getAllPlantas(limite, pagina);
-        console.log(plantas)
-        res.status(200).json(plantas);
-        next();
-    }
-    catch (error) {
-        const errorMessages = error.array().map(err => err.msg);
-        next(new CustomError(400, errorMessages.join(', ')));
-    }
+const getAllPlantasController = (req, res) => {
+    const { limite, pagina } = req.query;
+    let plantas = models.getAllPlantas(limite, pagina);
+    res.status(200).json(plantas);
+
 };
 
 const getPlatasByIdController = (req, res) => {
-    try {
-        let plantas = models.getPlatasById(req.params.id);
+    let plantas = models.getPlatasById(req.params.id);
 
-        res.status(200).json(plantas);
-        next();
-    }
-    catch (error) {
-        const errorMessages = error.array().map(err => err.msg);
-        next(new CustomError(400, errorMessages.join(', ')));
-    }
+    res.status(200).json(plantas);
+
 };
 
 const createPlataControler = (req, res) => {
-    try {
-        const { nome, preco, quantidade } = req.body;
-        let plantas = models.createPlata(nome, preco, quantidade);
+    const { nome, preco, quantidade } = req.body;
+    let plantas = models.createPlata(nome, preco, quantidade);
 
-        res.status(200).json(plantas);
-        next();
-    }
-    catch (error) {
-        const errorMessages = error.array().map(err => err.msg);
-        next(new CustomError(400, errorMessages.join(', ')));
-    }
+    res.status(200).json(plantas);
+
 }
 
 const updatePlantaController = (req, res) => {
-    try {
-        const { nome, preco, quantidade } = req.body;
-        let plantas = models.updatePlanta(req.params.id, nome, preco, quantidade);
+    const { nome, preco, quantidade } = req.body;
+    let plantas = models.updatePlanta(req.params.id, nome, preco, quantidade);
 
-        res.status(200).json(plantas);
-        next();
-    }
-
-    catch (error) {
-        const errorMessages = error.array().map(err => err.msg);
-        next(new CustomError(400, errorMessages.join(', ')));
-    }
+    res.status(200).json(plantas);
 }
 
 const deletePlantaControler = (req, res) => {
-    try {
-        let plantas = models.deletePlanta(req.params.id);
+    let plantas = models.deletePlanta(req.params.id);
 
-        res.status(200).json(plantas);
-        next();
-    }
-    catch (error) {
-        const errorMessages = error.array().map(err => err.msg);
-        next(new CustomError(400, errorMessages.join(', ')));
-    }
+    res.status(200).json(plantas);
+
 }
 
 module.exports = {
