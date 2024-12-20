@@ -4,6 +4,8 @@ const UserRoutes = require('./src/routes/UserRoutes.js');
 const GetErrosMiddleware = require('./src/middleware/GetErrorsMiddleware.js');
 const AuthRoutes = require('./src/routes/AuthRoutes.js');
 const installAdminConfig = require('./src/config/InstallAdminConfig.js');
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('./src/swagger_output.json');
 
 
 const plantaRoutes  = require('./src/routes/PlantaRoutes')
@@ -21,6 +23,8 @@ app.use('/login',AuthRoutes);
 app.use('/usuarios',UserRoutes);
 
 app.use('/estoque', plantaRoutes);
+
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use(GetErrosMiddleware);
 
