@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const controllers = require('../controllers/PlantaController');
+const controllers = require('../controllers/PlantaController.js');
 const {paginationValidator,IdValidator, plantasValidator} = require('../middleware/RequestValidators.js');
 const {validationResultMiddleware} = require('../middleware/ValidationResultMiddleware.js');
 const { authenticateToken} = require('../middleware/AuthenticatedMiddleware.js');
@@ -9,7 +9,7 @@ router.get('/', authenticateToken,paginationValidator,validationResultMiddleware
 router.get('/:id',authenticateToken, IdValidator,validationResultMiddleware, controllers.getPlatasByIdController);
 
 //create
-router.post('/', authenticateToken,plantasValidator, validationResultMiddleware, controllers.createPlataControler);
+router.post('/', authenticateToken,plantasValidator, validationResultMiddleware, controllers.createPlantaControler);
 
 //update
 router.put('/:id', authenticateToken,IdValidator,validationResultMiddleware, controllers.updatePlantaController);

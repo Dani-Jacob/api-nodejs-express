@@ -6,6 +6,7 @@ const AuthRoutes = require('./src/routes/AuthRoutes.js');
 const installAdminConfig = require('./src/config/InstallAdminConfig.js');
 const swaggerUi = require('swagger-ui-express');
 const swaggerFile = require('./src/swagger_output.json');
+const vasosRoute = require('./src/routes/VasosRoutes')
 
 
 const plantaRoutes  = require('./src/routes/PlantaRoutes')
@@ -22,7 +23,9 @@ app.use('/login',AuthRoutes);
 
 app.use('/usuarios',UserRoutes);
 
-app.use('/estoque', plantaRoutes);
+app.use('/estoque/plantas', plantaRoutes);
+
+app.use('/estoque/vasos', require('./src/routes/VasosRoutes'));
 
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 

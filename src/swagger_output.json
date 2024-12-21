@@ -130,7 +130,7 @@
             "type": "string"
           },
           {
-            "name": "Authorization",
+            "name": "authorization",
             "in": "header",
             "type": "string"
           },
@@ -179,12 +179,12 @@
         }
       }
     },
-    "/estoque/": {
+    "/estoque/plantas/": {
       "get": {
         "description": "",
         "parameters": [
           {
-            "name": "Authorization",
+            "name": "authorization",
             "in": "header",
             "type": "string"
           },
@@ -209,7 +209,7 @@
         "description": "",
         "parameters": [
           {
-            "name": "Authorization",
+            "name": "authorization",
             "in": "header",
             "type": "string"
           },
@@ -239,7 +239,7 @@
         }
       }
     },
-    "/estoque/{id}": {
+    "/estoque/plantas/{id}": {
       "get": {
         "description": "",
         "parameters": [
@@ -250,7 +250,7 @@
             "type": "string"
           },
           {
-            "name": "Authorization",
+            "name": "authorization",
             "in": "header",
             "type": "string"
           }
@@ -271,7 +271,7 @@
             "type": "string"
           },
           {
-            "name": "Authorization",
+            "name": "authorization",
             "in": "header",
             "type": "string"
           },
@@ -310,7 +310,150 @@
             "type": "string"
           },
           {
-            "name": "Authorization",
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/estoque/vasos/": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "limite",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "pagina",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "example": "any"
+                },
+                "preco": {
+                  "example": "any"
+                },
+                "quantidade": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/estoque/vasos/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "example": "any"
+                },
+                "preco": {
+                  "example": "any"
+                },
+                "quantidade": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "authorization",
             "in": "header",
             "type": "string"
           }

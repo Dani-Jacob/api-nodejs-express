@@ -25,7 +25,13 @@ const userValidator = [
 ];
 
 const plantasValidator = [
-  body('nome').isString().withMessage('Nome deve ser uma string').notEmpty().withMessage('Nome não pode ser vazio').isLength({ min: 3, max: 50 }).withMessage('Nome deve ter entre 3 e 50 caracteres'),,
+  body('nome').isString().withMessage('Nome deve ser uma string').notEmpty().withMessage('Nome não pode ser vazio').isLength({ min: 3, max: 50 }).withMessage('Nome deve ter entre 3 e 50 caracteres'),
+  body('preco').isFloat({ min: 0 }).withMessage('Preco deve ser um número positivo'),
+  body('quantidade').isInt({ min: 0 }).withMessage('Quantidade deve ser um número positivo')
+];
+
+const vasosValidator = [
+  body('nome').isString().withMessage('Nome deve ser uma string').notEmpty().withMessage('Nome não pode ser vazio').isLength({ min: 3, max: 50 }).withMessage('Nome deve ter entre 3 e 50 caracteres'),
   body('preco').isFloat({ min: 0 }).withMessage('Preco deve ser um número positivo'),
   body('quantidade').isInt({ min: 0 }).withMessage('Quantidade deve ser um número positivo')
 ];
@@ -38,5 +44,6 @@ module.exports = {
   paginationValidator,
   userValidator,
   plantasValidator,
-  IdValidator
+  IdValidator,
+  vasosValidator
 };

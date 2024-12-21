@@ -2,12 +2,13 @@ const jwt = require('jsonwebtoken');
 const CustomError = require('../customErrors/CustomError.js');
 
 const authenticateToken = (req, res, next) => {
-    const authHeader = req.headers['Authorization'];
-
+    const authHeader = req.headers['authorization'];
+    if(!authHeader){
+        return next(new CustomError(401, 'Token inválido!'));
+    }
     const token = authHeader.startsWith('Bearer ') ? authHeader.split(' ')[1] : null;
-
     if(!token){
-        return next(new CustomError(401, 'Acesso negado!'));
+        return next(new CustomError(401, 'Token inválido!'));
     }
 
     jwt.verify(token, process.env.JWT_SECRET, (err, user) => {

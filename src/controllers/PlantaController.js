@@ -8,15 +8,15 @@ const getAllPlantasController = (req, res) => {
 };
 
 const getPlatasByIdController = (req, res) => {
-    let plantas = models.getPlatasById(req.params.id);
+    let plantas = models.getPlantasById(req.params.id);
 
     res.status(200).json(plantas);
 
 };
 
-const createPlataControler = (req, res) => {
+const createPlantaControler = (req, res) => {
     const { nome, preco, quantidade } = req.body;
-    let plantas = models.createPlata(nome, preco, quantidade);
+    let plantas = models.createPlanta(nome, preco, quantidade);
 
     res.status(200).json(plantas);
 
@@ -39,7 +39,7 @@ const deletePlantaControler = (req, res) => {
 module.exports = {
     getAllPlantasController,
     getPlatasByIdController,
-    createPlataControler,
+    createPlantaControler,
     updatePlantaController,
     deletePlantaControler
 }
