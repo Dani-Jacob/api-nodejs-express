@@ -1,20 +1,20 @@
-# api-nodejs-express
-Trabalho UTFPR (Back-end)
+# API de Gestão de Usuários, Plantas e Vasos com Node.js e Express.js
 
-Daniel Jacob Jaroszczuk & Felipe Alves Barea
+Este projeto é uma API RESTful desenvolvida com Node.js e Express.js, criada como parte de um trabalho acadêmico na UTFPR. A API permite a gestão de usuários, plantas e vasos, oferecendo operações de criação, leitura, atualização e exclusão (CRUD).
 
-# api-nodejs-express
+## Autores
 
-Este é um projeto de API RESTful desenvolvido com Node.js e Express.js como parte de um trabalho acadêmico na UTFPR. A API permite a gestão de usuários e plantas, incluindo operações de criação, leitura, atualização e exclusão (CRUD).
+Desenvolvido por Daniel Jacob Jaroszczuk & Felipe Alves Barea.
 
 ## Funcionalidades
 
-- **Autenticação e Autorização**: Utiliza JWT para autenticação e middleware para verificação de permissões.
+- **Autenticação e Autorização**: Implementação de JWT para autenticação e middleware para verificação de permissões.
 - **Gestão de Usuários**: Endpoints para criar, listar, atualizar e deletar usuários.
 - **Gestão de Plantas**: Endpoints para criar, listar, atualizar e deletar plantas.
-- **Validação de Dados**: Utiliza `express-validator` para validar dados de entrada.
+- **Gestão de Vasos**: Endpoints para criar, listar, atualizar e deletar vasos.
+- **Validação de Dados**: Utilização do `express-validator` para validar dados de entrada.
 - **Tratamento de Erros**: Middleware personalizado para tratamento de erros.
-- **Documentação**: Geração automática de documentação Swagger.
+- **Documentação**: Geração automática de documentação utilizando Swagger.
 
 ## Estrutura do Projeto
 
